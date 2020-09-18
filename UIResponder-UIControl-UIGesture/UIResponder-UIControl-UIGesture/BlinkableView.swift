@@ -24,10 +24,11 @@ final class BlinkableView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 调用 super 的话会在整个响应链里都执行方法，
+        // 在响应链里能响应的 view 的时候调用闪烁动画。调用 super 的话会在整个响应链里都执行方法，
         // 注释之后，只在第一响应者的 view 响应（becomeFirstResponder 的 view）
 //        super.touchesBegan(touches, with: event)
         UIApplication.shared.sendAction(#selector(BlinkableView.performBlinkAction(_:)), to: nil, from: nil, for: nil)
     }
+
 
 }

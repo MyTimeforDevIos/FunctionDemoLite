@@ -43,6 +43,14 @@ class UIResponderView: UIViewController {
         button.backgroundColor = .white
         button.setTitleColor(.black, for: .normal)
         self.view.addSubview(button)
+        
+        let other = UIView(frame: CGRect(x: 300, y: 300, width: 50, height: 50))
+        other.backgroundColor = .systemPink
+        self.view.addSubview(other)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(gestureTap))
+        other.addGestureRecognizer(tap)
+        other.isUserInteractionEnabled = true
     }
     
     @objc func reset() {
@@ -51,6 +59,10 @@ class UIResponderView: UIViewController {
         back3.backgroundColor = .yellow
         
         back1.select()
+    }
+    
+    @objc func gestureTap() {
+        print("otherview tap ")
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
